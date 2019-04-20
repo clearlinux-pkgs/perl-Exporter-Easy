@@ -4,10 +4,10 @@
 #
 Name     : perl-Exporter-Easy
 Version  : 0.18
-Release  : 9
+Release  : 10
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Easy-0.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Easy-0.18.tar.gz
-Summary  : 'Takes the drudgery out of Exporting symbols'
+Summary  : Takes the drudgery out of Exporting symbols
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Exporter-Easy-license = %{version}-%{release}
@@ -22,6 +22,7 @@ Takes the drudgery out of Exporting symbols
 Summary: dev components for the perl-Exporter-Easy package.
 Group: Development
 Provides: perl-Exporter-Easy-devel = %{version}-%{release}
+Requires: perl-Exporter-Easy = %{version}-%{release}
 
 %description dev
 dev components for the perl-Exporter-Easy package.

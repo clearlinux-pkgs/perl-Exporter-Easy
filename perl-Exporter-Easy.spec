@@ -4,13 +4,14 @@
 #
 Name     : perl-Exporter-Easy
 Version  : 0.18
-Release  : 12
+Release  : 13
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Easy-0.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Easy-0.18.tar.gz
-Summary  : Takes the drudgery out of Exporting symbols
+Summary  : 'Takes the drudgery out of Exporting symbols'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Exporter-Easy-license = %{version}-%{release}
+Requires: perl-Exporter-Easy-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -36,14 +37,24 @@ Group: Default
 license components for the perl-Exporter-Easy package.
 
 
+%package perl
+Summary: perl components for the perl-Exporter-Easy package.
+Group: Default
+Requires: perl-Exporter-Easy = %{version}-%{release}
+
+%description perl
+perl components for the perl-Exporter-Easy package.
+
+
 %prep
 %setup -q -n Exporter-Easy-0.18
+cd %{_builddir}/Exporter-Easy-0.18
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -53,7 +64,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -62,7 +73,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Exporter-Easy
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Exporter-Easy/LICENSE
+cp %{_builddir}/Exporter-Easy-0.18/LICENSE %{buildroot}/usr/share/package-licenses/perl-Exporter-Easy/c4d45ac20684b7598d4f17ac71d259ebe3e10d7d
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -75,8 +86,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Exporter/Easiest.pm
-/usr/lib/perl5/vendor_perl/5.28.2/Exporter/Easy.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -85,4 +94,9 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Exporter-Easy/LICENSE
+/usr/share/package-licenses/perl-Exporter-Easy/c4d45ac20684b7598d4f17ac71d259ebe3e10d7d
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Exporter/Easiest.pm
+/usr/lib/perl5/vendor_perl/5.30.1/Exporter/Easy.pm

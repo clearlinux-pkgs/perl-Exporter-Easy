@@ -4,7 +4,7 @@
 #
 Name     : perl-Exporter-Easy
 Version  : 0.18
-Release  : 14
+Release  : 15
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Easy-0.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Easy-0.18.tar.gz
 Summary  : 'Takes the drudgery out of Exporting symbols'
@@ -98,5 +98,5 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.2/Exporter/Easiest.pm
-/usr/lib/perl5/vendor_perl/5.30.2/Exporter/Easy.pm
+/usr/lib/perl5/vendor_perl/5.30.3/Exporter/Easiest.pm
+/usr/lib/perl5/vendor_perl/5.30.3/Exporter/Easy.pm

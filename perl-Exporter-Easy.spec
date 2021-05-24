@@ -4,7 +4,7 @@
 #
 Name     : perl-Exporter-Easy
 Version  : 0.18
-Release  : 20
+Release  : 21
 URL      : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Easy-0.18.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/N/NE/NEILB/Exporter-Easy-0.18.tar.gz
 Summary  : 'Takes the drudgery out of Exporting symbols'
